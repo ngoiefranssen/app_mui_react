@@ -24,7 +24,7 @@ const DialoguePup = (props) => {
                     </Typography>
                     <Controller.ActionButton
                         color='secondary'
-                        onClick = {() => setOpenPopup(false)} 
+                        onClick = {() => setOpenPopup(false)}
                     >
                         <CloseIcon />
                     </Controller.ActionButton>
