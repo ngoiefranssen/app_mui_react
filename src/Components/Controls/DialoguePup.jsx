@@ -22,7 +22,10 @@ const DialoguePup = (props) => {
                     <Typography variant='h6' component='div' flexGrow={1}>
                         {title}
                     </Typography>
-                    <Controller.ActionButton color='secondary'>
+                    <Controller.ActionButton
+                        color='secondary'
+                        onClick = {() => setOpenPopup(false)} 
+                    >
                         <CloseIcon />
                     </Controller.ActionButton>
                 </div>

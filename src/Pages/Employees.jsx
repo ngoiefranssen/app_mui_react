@@ -98,6 +98,7 @@ const Employees = () => {
         text='Employee Form'
         openPopup={openPopup}
         setOpenPopup={setOpenPopup}
+        
       >
         <EmployeeForm />
       </DialoguePup>   
