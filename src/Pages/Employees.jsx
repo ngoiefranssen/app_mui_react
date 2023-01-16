@@ -49,6 +49,10 @@ const Employees = () => {
       }
     })
   }
+  const addOrEdit = (employee, resetForm) => {
+    EmployeeServices.insertEmployee(values)
+    resetForm()
+  }
   return (
     <>
       <PageHeader
