@@ -22,7 +22,8 @@ const initialValues = {
   isPermanent: false,
 }
 
-const EmployeeForm = () => {
+const EmployeeForm = (props) => {
+  const { addOrEdit } = props
 
   // const theme = createTheme({})
   const validate = (fieldValues = values) =>{
@@ -59,8 +60,9 @@ const EmployeeForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(validate()){
-      EmployeeServices.insertEmployee(values)
-      resetForm()
+      addOrEdit(values, resetForm)
+      // EmployeeServices.insertEmployee(values)
+      // resetForm()
     }
   }
     

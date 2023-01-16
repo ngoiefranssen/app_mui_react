@@ -50,8 +50,10 @@ const Employees = () => {
     })
   }
   const addOrEdit = (employee, resetForm) => {
-    EmployeeServices.insertEmployee(values)
+    EmployeeServices.insertEmployee(employee)
     resetForm()
+    setOpenPopup(false)
+    setRecords(EmployeeServices.getAllEmployee())
   }
   return (
     <>
