@@ -2,9 +2,11 @@ import React from 'react'
 import EmployeeForm from './EmployeeForm'
 import PageHeader from '../Components/PageHeader';
 import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
-import { Paper, TableBody, TableCell, TableRow } from '@mui/material';
+import { InputAdornment, Paper, TableBody, TableCell, TableRow } from '@mui/material';
 import UseTable from '../Components/UseTable';
 import * as EmployeeServices from '../Services/EmployeeServices' 
+import Controller from '../Components/Controls/Controller';
+import { Search } from '@mui/icons-material';
 
 // const useStyles = createTheme((theme) => ({ useTheme
 //     root: {
@@ -19,18 +21,31 @@ const headCells =[
   {id: 'fullname', label: 'Name Employee'},
   {id: 'email' , label: 'Email Address (Person)'},
   {id: 'mobile' , label: 'Mobile Number'},
-  {id: 'department' , label: 'Department'},
+  {id: 'department' , label: 'Department', disableSorting : true },
 ];
 
 const Employees = () => {
 
   const [records, setRecords] = React.useState(EmployeeServices.getAllEmployee())
+  const [filter, setFilter] = React.useState({ fn: (items) => {return items } })
   const {
     TabContainer,
     TabHead,
     TabPagination,
     recordsAfterPaginAndSorting
-  } = UseTable(records, headCells)
+  } = UseTable(records, headCells, filter)
+
+  const handleSearchChange = (e) => {
+    let target = e.target
+    setFilter({
+      fn: (items) => {
+        if(target.value = '')
+          return items
+        else
+          return items.filter((x) => x.fullname.toLowerCase().includes(target.value))
+      }
+    })
+  }
   return (
     <>
       <PageHeader
@@ -38,8 +53,22 @@ const Employees = () => {
           subtitle='Form design with validation'
           icon={<PeopleOutlineIcon fontSize='large' />}
       />
-      <Paper rowSpacing={5} columnSpacing={3}>  {/*sx={{ margin: spacing(5), /* '8px auto  padding: spacing(3) }} */}
-          <EmployeeForm />
+      <Paper /**rowSpacing={5} columnSpacing={3}**/>  {/*sx={{ margin: spacing(5), /* '8px auto  padding: spacing(3) }} */}
+          {/* <EmployeeForm /> */}
+          <Toolbar>
+            <Controller.InputController
+              sx={{ width : '75%' }}
+              label='Search Employee' 
+              InputProps= {{
+                startAdornment: (
+                  <InputAdornment position='start'>
+                    <Search />
+                  </InputAdornment>
+                  )
+              }}
+              onChange={handleSearchChange}
+            />
+          </Toolbar>
           <TabContainer>
           <TabHead />
             <TableBody>

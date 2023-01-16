@@ -25,7 +25,7 @@ const initialValues = {
 const EmployeeForm = () => {
 
   // const theme = createTheme({})
-  const validateDatas = (fieldValues = values) =>{
+  const validate = (fieldValues = values) =>{
     let temp = {...errors}
     if('fullname' in fieldValues){
       temp.fullname = fieldValues.fullname ? "" : "This field is required."
@@ -54,14 +54,13 @@ const EmployeeForm = () => {
     setErrors,
     handleInputChange,
     resetForm,
-  } = UserForm(initialValues, true, validateDatas); // ,validateOnChange=true, 
+  } = UserForm(initialValues, true, validate); // ,validateOnChange=true, 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(validateDatas()){
-      // EmployeeServices.insertEmployee(values);
-      // resetForm();
-      window.alert('testing.......')
+    if(validate()){
+      EmployeeServices.insertEmployee(values);
+      resetForm();
     }
   }
     

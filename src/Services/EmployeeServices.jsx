@@ -15,7 +15,7 @@ export const insertEmployee = (data) => {
     let employees = getAllEmployee();
     data['id'] = generateEmployeeId();
     employees.push(data)
-    localStorage.setItem(keys.employees, JSON.stringify(data))
+    localStorage.setItem(keys.employees, JSON.stringify(employees))
 }
 
 export const generateEmployeeId = () => {

@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import React from 'react'
 
-export const UserForm  = (initialValues, validateOnChange=false, validateDatas) => {
+export const UserForm  = (initialValues, validateOnChange=false, validate) => {
 
     const [values, setValues] = React.useState(initialValues);
     const [errors, setErrors] = React.useState({})
@@ -13,7 +13,7 @@ export const UserForm  = (initialValues, validateOnChange=false, validateDatas) 
           [name] : value
         })
         if(validateOnChange){
-            validateDatas({ [name] : value })
+            validate({ [name] : value })
         } 
       }
 
