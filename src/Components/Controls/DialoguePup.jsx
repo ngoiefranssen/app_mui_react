@@ -1,10 +1,6 @@
 import { Dialog, DialogContent } from '@mui/material'
 import React from 'react'
 
-padding:theme.spacing(2)
-position:'absolute'
-top: theme.spacing(5)
-
 const DialoguePup = (props) => {
     const {title, children, openPopup, setOpenPopup} = props
     return (
@@ -12,8 +8,8 @@ const DialoguePup = (props) => {
             open={openPopup} 
             sx={{
                 paddind:theme.spacing(2),
-                position:'absolute'
-                
+                position:'absolute',
+                top: theme.spacing(5)
                 }}
             >
             <DialogTitle>
