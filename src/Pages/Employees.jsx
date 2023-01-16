@@ -75,7 +75,7 @@ const Employees = () => {
           subtitle='Form design with validation'
           icon={<PeopleOutlineIcon fontSize='large' />}
       />
-      <Paper>  {/*sx={{ margin: spacing(5), /* '8px auto  padding: spacing(3) }} */}
+      <Paper>  {/*sx={{ margin: spacing(5), /* '8px auto padding: spacing(3) }} */}
           <Toolbar>
             <Controller.InputController
               sx={{ width : '75%' }}
