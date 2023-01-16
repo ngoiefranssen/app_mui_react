@@ -35,6 +35,7 @@ const Employees = () => {
     recordsAfterPaginAndSorting
   } = UseTable(records, headCells, filter)
 
+
   const handleSearchChange = (e) => {
     let target = e.target
     setFilter({
@@ -53,7 +54,7 @@ const Employees = () => {
           subtitle='Form design with validation'
           icon={<PeopleOutlineIcon fontSize='large' />}
       />
-      <Paper /**rowSpacing={5} columnSpacing={3}**/>  {/*sx={{ margin: spacing(5), /* '8px auto  padding: spacing(3) }} */}
+      <Paper>  {/*sx={{ margin: spacing(5), /* '8px auto  padding: spacing(3) }} */}
           {/* <EmployeeForm /> */}
           <Toolbar>
             <Controller.InputController
