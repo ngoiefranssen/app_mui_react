@@ -70,6 +70,7 @@ const Employees = () => {
               onChange={handleSearchChange}
             />
             <Controller.Button 
+              sx={{ position:'absolute', right:'10px' }}
               text='Add new'
               variant='outlined'
               startIcon={<Add />}
