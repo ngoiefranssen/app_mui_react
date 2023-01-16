@@ -6,7 +6,7 @@ import { InputAdornment, Paper, TableBody, TableCell, TableRow } from '@mui/mate
 import UseTable from '../Components/UseTable';
 import * as EmployeeServices from '../Services/EmployeeServices' 
 import Controller from '../Components/Controls/Controller';
-import { Search } from '@mui/icons-material';
+import { Add, Search } from '@mui/icons-material';
 
 // const useStyles = createTheme((theme) => ({ useTheme
 //     root: {
@@ -27,7 +27,7 @@ const headCells =[
 const Employees = () => {
 
   const [records, setRecords] = React.useState(EmployeeServices.getAllEmployee())
-  const [filter, setFilter] = React.useState({ fn: (items) => {return items } })
+  const [filter, setFilter] = React.useState({ fn: (items) => { return items } })
   const {
     TabContainer,
     TabHead,
@@ -68,6 +68,11 @@ const Employees = () => {
                   )
               }}
               onChange={handleSearchChange}
+            />
+            <Controller.Button 
+              text='Add new'
+              variant='outlined'
+              startIcon={<Add />}
             />
           </Toolbar>
           <TabContainer>
