@@ -8,6 +8,7 @@ import * as EmployeeServices from '../Services/EmployeeServices'
 import Controller from '../Components/Controls/Controller';
 import { Add, Search } from '@mui/icons-material';
 import DialoguePup from '../Components/Controls/DialoguePup';
+import { EditIcon, CloseIcon } from '@mui/icons-material';
 
 // const useStyles = createTheme((theme) => ({ useTheme
 //     root: {
@@ -19,14 +20,16 @@ import DialoguePup from '../Components/Controls/DialoguePup';
 //     }));
 
 const headCells =[
-  {id: 'fullname', label: 'Name Employee'},
-  {id: 'email' , label: 'Email Address (Person)'},
-  {id: 'mobile' , label: 'Mobile Number'},
-  {id: 'department' , label: 'Department', disableSorting : true },
+  { id: 'fullname', label: 'Name Employee' },
+  { id: 'email' , label: 'Email Address (Person)' },
+  { id: 'mobile' , label: 'Mobile Number' },
+  { id: 'department' , label: 'Department' },
+  { id: 'actions', label: 'Actions', disableSorting : true }
 ];
 
 const Employees = () => {
 
+  const [recordsForEdit, setRecordsForEdit] = React.useState(null)
   const [records, setRecords] = React.useState(EmployeeServices.getAllEmployee())
   const [filter, setFilter] = React.useState({ fn: (items) => { return items } })
   const [openPopup, setOpenPopup] = React.useState(false)
@@ -50,10 +53,20 @@ const Employees = () => {
     })
   }
   const addOrEdit = (employee, resetForm) => {
-    EmployeeServices.insertEmployee(employee)
+    if(employee.id == 0){
+      EmployeeServices.insertEmployee(employee)
+    }else{
+      EmployeeServices.updateEmployee(employee)
+    }
     resetForm()
+    setRecordsForEdit(null)
     setOpenPopup(false)
     setRecords(EmployeeServices.getAllEmployee())
+  }
+
+  const openInPopup = (item) => {
+    setRecordsForEdit(item)
+    setOpenPopup(true)
   }
   return (
     <>
@@ -81,7 +94,7 @@ const Employees = () => {
               text='Add new'
               variant='outlined'
               startIcon={<Add />}
-              onClick={ () => setOpenPopup(true) }
+              onClick={ () => { setOpenPopup(true); setRecordsForEdit(null) }}
             />
           </Toolbar>
           <TabContainer>
@@ -93,6 +106,17 @@ const Employees = () => {
                     <TableCell>{item.fullname}</TableCell>
                     <TableCell>{item.email}</TableCell>
                     <TableCell>{item.mobile}</TableCell>
+                    <TableCell>
+                      <Controller.ActionButton 
+                        color='primary'
+                        onClick={ ()=> { openInPopup(item) }}
+                      >
+                        <EditIcon fontSize='small'/>
+                      </Controller.ActionButton>
+                      <Controller.ActionButton color='secondary'>
+                        <CloseIcon fontSize='small'/>
+                      </Controller.ActionButton>
+                    </TableCell>
                   </TableRow>
                 ))
               }
@@ -106,7 +130,10 @@ const Employees = () => {
         setOpenPopup={setOpenPopup}
         
       >
-        <EmployeeForm addOrEdit={addOrEdit} />
+        <EmployeeForm
+          recordsForEdit={recordsForEdit}
+          addOrEdit={addOrEdit}
+        />
       </DialoguePup>   
     </>
   )

@@ -23,7 +23,7 @@ const initialValues = {
 }
 
 const EmployeeForm = (props) => {
-  const { addOrEdit } = props
+  const { addOrEdit, recordsForEdit } = props
 
   // const theme = createTheme({})
   const validate = (fieldValues = values) =>{
@@ -65,6 +65,15 @@ const EmployeeForm = (props) => {
       // resetForm()
     }
   }
+
+  React.useEffect(() => {
+    if(recordsForEdit != null)
+    {
+      setValues({
+        ...recordsForEdit
+      })
+    }
+  }, [recordsForEdit])
     
   return (
     <Form onSubmit={handleSubmit}>

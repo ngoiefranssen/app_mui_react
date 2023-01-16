@@ -18,6 +18,13 @@ export const insertEmployee = (data) => {
     localStorage.setItem(keys.employees, JSON.stringify(employees))
 }
 
+export const updateEmployee = (data) => {
+    let employees = getAllEmployee();
+    let recordIndex = employees.findIndex((x) => x.id == data.id)
+    employees[recordIndex] = { ...data }
+    localStorage.setItem(keys.employees, JSON.stringify(employees))
+}
+
 export const generateEmployeeId = () => {
     if(localStorage.getItem(keys.employeeId) == null){
         localStorage.setItem(keys.employeeId, '0')
