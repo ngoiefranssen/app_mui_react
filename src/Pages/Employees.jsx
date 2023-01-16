@@ -35,7 +35,7 @@ const Employees = () => {
     recordsAfterPaginAndSorting
   } = UseTable(records, headCells, filter)
 
-
+// Search Employee 
   const handleSearchChange = (e) => {
     let target = e.target
     setFilter({
