@@ -25,6 +25,7 @@ export default function ActionButton(props) {
     const { color, children, onClick } = props
     return (
         <Button
+            // root and color
             onClick={onClick}
         >
             {children}
