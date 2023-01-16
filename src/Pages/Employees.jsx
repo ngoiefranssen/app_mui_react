@@ -95,6 +95,7 @@ const Employees = () => {
           <TabPagination />
       </Paper>
       <DialoguePup
+        text='Employee Form'
         openPopup={openPopup}
         setOpenPopup={setOpenPopup}
       >

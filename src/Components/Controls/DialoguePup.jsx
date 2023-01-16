@@ -6,13 +6,15 @@ const DialoguePup = (props) => {
     return (
         <Dialog 
             open={openPopup} 
-            sx={{
-                maxWidth:'md',
-                // paddind:theme.spacing(2),
-                position:'absolute',
-                // top: theme.spacing(5)
-                }}
-            >
+            sx={{ 
+                paper : {
+                    maxWidth:'md',
+                    // paddind:theme.spacing(2),
+                    position:'absolute',
+                    // top: theme.spacing(5)
+                }
+            }}
+        >
             <DialogTitle>
                 <div>Title goes here</div>
             </DialogTitle>
