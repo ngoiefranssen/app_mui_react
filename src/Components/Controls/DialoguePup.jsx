@@ -22,12 +22,12 @@ const DialoguePup = (props) => {
                         {title}
                     </Typography>
                     <Controller.ActionButton color='secondary'>
-
+                        <CloseIcon />
                     </Controller.ActionButton>
                 </div>
             </DialogTitle>
             <DialogContent dividers>
-            {children}
+                {children}
             </DialogContent>
         </Dialog>
     )
