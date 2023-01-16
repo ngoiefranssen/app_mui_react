@@ -7,6 +7,7 @@ import UseTable from '../Components/UseTable';
 import * as EmployeeServices from '../Services/EmployeeServices' 
 import Controller from '../Components/Controls/Controller';
 import { Add, Search } from '@mui/icons-material';
+import DialoguePup from '../Components/Controls/DialoguePup';
 
 // const useStyles = createTheme((theme) => ({ useTheme
 //     root: {
@@ -28,6 +29,7 @@ const Employees = () => {
 
   const [records, setRecords] = React.useState(EmployeeServices.getAllEmployee())
   const [filter, setFilter] = React.useState({ fn: (items) => { return items } })
+  const [openPopup, setOpenPopup] = React.useState(false)
   const {
     TabContainer,
     TabHead,
@@ -55,7 +57,6 @@ const Employees = () => {
           icon={<PeopleOutlineIcon fontSize='large' />}
       />
       <Paper>  {/*sx={{ margin: spacing(5), /* '8px auto  padding: spacing(3) }} */}
-          {/* <EmployeeForm /> */}
           <Toolbar>
             <Controller.InputController
               sx={{ width : '75%' }}
@@ -74,6 +75,7 @@ const Employees = () => {
               text='Add new'
               variant='outlined'
               startIcon={<Add />}
+              onClick={ () => setOpenPopup(true) }
             />
           </Toolbar>
           <TabContainer>
@@ -91,7 +93,13 @@ const Employees = () => {
             </TableBody>
           </TabContainer>
           <TabPagination />
-      </Paper>      
+      </Paper>
+      <DialoguePup
+        openPopup={openPopup}
+        setOpenPopup={setOpenPopup}
+      >
+        <EmployeeForm />
+      </DialoguePup>   
     </>
   )
 }

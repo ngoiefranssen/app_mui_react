@@ -1,15 +1,26 @@
 import { Dialog, DialogContent } from '@mui/material'
 import React from 'react'
 
+padding:theme.spacing(2)
+position:'absolute'
+top: theme.spacing(5)
+
 const DialoguePup = (props) => {
-    const {title, children, openPopup, setopenPopup} = props
+    const {title, children, openPopup, setOpenPopup} = props
     return (
-        <Dialog>
+        <Dialog 
+            open={openPopup} 
+            sx={{
+                paddind:theme.spacing(2),
+                position:'absolute'
+                
+                }}
+            >
             <DialogTitle>
                 <div>Title goes here</div>
             </DialogTitle>
             <DialogContent>
-            <div>Content goes here</div>
+            {children}
             </DialogContent>
         </Dialog>
     )
