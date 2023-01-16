@@ -104,7 +104,7 @@ const Employees = () => {
         setOpenPopup={setOpenPopup}
         
       >
-        <EmployeeForm />
+        <EmployeeForm addOrEdit={addOrEdit} />
       </DialoguePup>   
     </>
   )
