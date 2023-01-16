@@ -59,8 +59,8 @@ const EmployeeForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(validate()){
-      EmployeeServices.insertEmployee(values);
-      resetForm();
+      EmployeeServices.insertEmployee(values)
+      resetForm()
     }
   }
     

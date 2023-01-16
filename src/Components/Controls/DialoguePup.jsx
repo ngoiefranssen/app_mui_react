@@ -6,7 +6,7 @@ import Controller from './Controller'
 const DialoguePup = (props) => {
     const {title, children, openPopup, setOpenPopup} = props
     return (
-        <Dialog 
+        <Dialog
             open={openPopup} 
             sx={{ 
                 paper : {
