@@ -6,9 +6,11 @@ const DialoguePup = (props) => {
     return (
         <Dialog>
             <DialogTitle>
-
+                <div></div>
             </DialogTitle>
-            <DialogContent></DialogContent>
+            <DialogContent>
+
+            </DialogContent>
         </Dialog>
     )
 }
