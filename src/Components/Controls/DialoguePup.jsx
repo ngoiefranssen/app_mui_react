@@ -21,12 +21,9 @@ const DialoguePup = (props) => {
                     <Typography variant='h6' component='div' flexGrow={1}>
                         {title}
                     </Typography>
-                    <Controller.Button
-                        color='secondary'
-                        text='X'
-                    >
+                    <Controller.ActionButton color='secondary'>
 
-                    </Controller.Button>
+                    </Controller.ActionButton>
                 </div>
             </DialogTitle>
             <DialogContent dividers>
