@@ -7,9 +7,9 @@ const DialoguePup = (props) => {
         <Dialog 
             open={openPopup} 
             sx={{
-                paddind:theme.spacing(2),
+                // paddind:theme.spacing(2),
                 position:'absolute',
-                top: theme.spacing(5)
+                // top: theme.spacing(5)
                 }}
             >
             <DialogTitle>
