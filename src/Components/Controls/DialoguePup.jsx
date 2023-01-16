@@ -16,7 +16,7 @@ const DialoguePup = (props) => {
                 }
             }}
         >
-            <DialogTitle>
+            <DialogTitle sx={{ paddingRight: '0px' }}>
                 <div style={{ display:'flex' }}>
                     <Typography variant='h6' component='div' flexGrow={1}>
                         {title}
