@@ -1,5 +1,6 @@
-import { Dialog, DialogContent, DialogTitle } from '@mui/material'
+import { Dialog, DialogContent, DialogTitle, Typography } from '@mui/material'
 import React from 'react'
+import Controller from './Controller'
 
 const DialoguePup = (props) => {
     const {title, children, openPopup, setOpenPopup} = props
@@ -16,7 +17,17 @@ const DialoguePup = (props) => {
             }}
         >
             <DialogTitle>
-                <div>Title goes here</div>
+                <div style={{ display:'flex' }}>
+                    <Typography variant='h6' component='div' flexGrow={1}>
+                        {title}
+                    </Typography>
+                    <Controller.Button
+                        color='secondary'
+                        text='X'
+                    >
+
+                    </Controller.Button>
+                </div>
             </DialogTitle>
             <DialogContent dividers>
             {children}
