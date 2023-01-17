@@ -1,6 +1,7 @@
+import { styled } from '@mui/material'
 import React from 'react'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = styled(theme => ({
     dialog: {
         padding: theme.spacing(2),
         position: 'absolute',
