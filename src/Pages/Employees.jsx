@@ -128,7 +128,10 @@ const Employees = () => {
                       >
                         <EditIcon fontSize='small'/>
                       </Controller.ActionButton>
-                      <Controller.ActionButton color='secondary'>
+                      <Controller.ActionButton
+                        color='secondary'
+                        onClick={ () => { handleOnDelete(item.id) }}
+                      >
                         <CloseIcon fontSize='small'/>
                       </Controller.ActionButton>
                     </TableCell>
