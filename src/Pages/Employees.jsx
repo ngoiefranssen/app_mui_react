@@ -75,7 +75,7 @@ const Employees = () => {
     setNotify({
       isOpen: true,
       message: 'Employee register successfully',
-      type: 'Success'
+      type: 'success'
     })
   }
 
@@ -84,7 +84,14 @@ const Employees = () => {
     setOpenPopup(true)
   }
   const handleOnDelete = (id) => {
+    if(window.confirm('Are you sure to delete this records?'))
     EmployeeServices.ondeleteEmployee(id)
+    setRecords(EmployeeServices.getAllEmployee())
+    setNotify({
+      isOpen: true,
+      message: 'employee successfully delete',
+      type: 'error'
+    })
   }
 
   return (
