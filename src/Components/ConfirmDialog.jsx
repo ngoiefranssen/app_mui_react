@@ -1,4 +1,12 @@
-import { Dialog, DialogActions, DialogContent, DialogTitle, styled, Typography } from '@mui/material'
+import {
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogTitle,
+    styled,
+    Typography
+} from '@mui/material'
+import Controller from './Controls/Controller'
 import React from 'react'
 
 const useStyles = styled(theme => ({
@@ -30,7 +38,7 @@ const useStyles = styled(theme => ({
 }))
 
 const ConfirmDialog = (props) => {
-    const { title, subtitle, confirmDialog, setConfirmDialog } = props
+    const { confirmDialog, setConfirmDialog } = props
     return (
         <Dialog open={confirmDialog.isOpen}>
             <DialogTitle></DialogTitle>
@@ -43,11 +51,11 @@ const ConfirmDialog = (props) => {
                 </Typography>
             </DialogContent>
             <DialogActions>
-                <Controls.Button
+                <Controller.Button
                     text="No"
                     color="default"
                     onClick={() => setConfirmDialog({ ...confirmDialog, isOpen: false })} />
-                <Controls.Button
+                <Controller.Button
                     text="Yes"
                     color="secondary"
                     onClick={confirmDialog.onConfirm} />

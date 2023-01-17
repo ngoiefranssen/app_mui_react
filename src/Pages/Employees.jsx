@@ -18,6 +18,7 @@ import DialoguePup from '../Components/Controls/DialoguePup';
 import EditIcon from '@mui/icons-material/Edit';
 import CloseIcon from '@mui/icons-material/Close';
 import Notification from '../Components/Notification';
+import ConfirmDialog from '../Components/ConfirmDialog';
 
 // const useStyles = createTheme((theme) => ({ useTheme
 //     root: {
@@ -43,6 +44,8 @@ const Employees = () => {
   const [filter, setFilter] = React.useState({ fn: (items) => { return items } })
   const [openPopup, setOpenPopup] = React.useState(false)
   const [notify, setNotify] = React.useState({ isOpen:false, message: '', type: '' })
+  const [ confirmDialog, setConfirmDialog ] = React.useState({
+    isOpen: false, title: '',subTitle: ''})
   const {
     TabContainer,
     TabHead,
@@ -141,7 +144,14 @@ const Employees = () => {
                       </Controller.ActionButton>
                       <Controller.ActionButton
                         color='secondary'
-                        onClick={ () => { handleOnDelete(item.id) }}
+                        onClick={ () => {
+                          //  handleOnDelete(item.id)
+                          setConfirmDialog({
+                            isOpen: true,
+                            title: 'Are you sure to delete this records',
+                            subTitle: "You can't undo this operation",
+                          })
+                        }}
                       >
                         <CloseIcon fontSize='small'/>
                       </Controller.ActionButton>
@@ -167,7 +177,8 @@ const Employees = () => {
       <Notification
         notify={notify}
         setNotify={setNotify}
-      />  
+      /> 
+      <ConfirmDialog />
     </>
   )
 }
