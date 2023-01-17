@@ -90,7 +90,6 @@ const Employees = () => {
     setConfirmDialog({
       ...confirmDialog,
       isOpen : false
-
     })
       EmployeeServices.ondeleteEmployee(id)
       setRecords(EmployeeServices.getAllEmployee())
