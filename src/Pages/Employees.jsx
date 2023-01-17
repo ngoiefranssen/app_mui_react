@@ -17,6 +17,7 @@ import { Add, Search } from '@mui/icons-material';
 import DialoguePup from '../Components/Controls/DialoguePup';
 import EditIcon from '@mui/icons-material/Edit';
 import CloseIcon from '@mui/icons-material/Close';
+import Notification from '../Components/Notification';
 
 // const useStyles = createTheme((theme) => ({ useTheme
 //     root: {
@@ -41,6 +42,7 @@ const Employees = () => {
   const [records, setRecords] = React.useState(EmployeeServices.getAllEmployee())
   const [filter, setFilter] = React.useState({ fn: (items) => { return items } })
   const [openPopup, setOpenPopup] = React.useState(false)
+  const [notify, setNotify] = React.useState({ isOpen:false, message: '', type: '' })
   const {
     TabContainer,
     TabHead,
@@ -142,7 +144,11 @@ const Employees = () => {
           recordsForEdit={recordsForEdit}
           addOrEdit={addOrEdit}
         />
-      </DialoguePup>   
+      </DialoguePup> 
+      <Notification
+        notify={notify}
+        setNotify={setNotify}
+      />  
     </>
   )
 }
