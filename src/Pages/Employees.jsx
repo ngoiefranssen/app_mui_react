@@ -72,6 +72,11 @@ const Employees = () => {
     setRecordsForEdit(null)
     setOpenPopup(false)
     setRecords(EmployeeServices.getAllEmployee())
+    setNotify({
+      isOpen: true,
+      message: 'Employee register successfully',
+      type: 'Success'
+    })
   }
 
   const openInPopup = (item) => {
