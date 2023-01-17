@@ -3,10 +3,12 @@ import {
     DialogActions,
     DialogContent,
     DialogTitle,
+    IconButton,
     styled,
     Typography
 } from '@mui/material'
 import Controller from './Controls/Controller'
+import NotificationsIcon from '@mui/icons-material/Notifications';
 import React from 'react'
 
 const useStyles = styled(theme => ({
@@ -41,8 +43,26 @@ const ConfirmDialog = (props) => {
     const { confirmDialog, setConfirmDialog } = props
     return (
         <Dialog open={confirmDialog.isOpen}>
-            <DialogTitle></DialogTitle>
-            <DialogContent>
+            <DialogTitle sx={{  }}>
+                <IconButton
+                    disableRipple
+                    sx={{ 
+                        paper: {
+                            backgroundColor: 'palette.secondary.light',
+                            color: 'palette.secondary.main',
+                            '&:hover': {
+                                backgroundColor: 'palette.secondary.light',
+                                cursor: 'default'
+                            },
+                            '& .MuiSvgIcon-root': {
+                                fontSize: '8rem',
+                        }}
+                    }}
+                >
+                    <NotificationsIcon />
+                </IconButton>
+            </DialogTitle>
+            <DialogContent sx={{ }}>
                 <Typography variant="h6">
                     {confirmDialog.title}
                 </Typography>

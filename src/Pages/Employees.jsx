@@ -87,15 +87,19 @@ const Employees = () => {
     setOpenPopup(true)
   }
   const handleOnDelete = (id) => {
-    if(window.confirm('Are you sure to delete this records?'))
-    EmployeeServices.ondeleteEmployee(id)
-    setRecords(EmployeeServices.getAllEmployee())
-    setNotify({
-      isOpen: true,
-      message: 'employee successfully delete',
-      type: 'error'
+    setConfirmDialog({
+      ...confirmDialog,
+      isOpen : false
+
     })
-  }
+      EmployeeServices.ondeleteEmployee(id)
+      setRecords(EmployeeServices.getAllEmployee())
+      setNotify({
+        isOpen : true,
+        message : 'employee successfully delete',
+        type : 'error'
+      })
+}
 
   return (
     <>
@@ -145,11 +149,11 @@ const Employees = () => {
                       <Controller.ActionButton
                         color='secondary'
                         onClick={ () => {
-                          //  handleOnDelete(item.id)
                           setConfirmDialog({
                             isOpen: true,
                             title: 'Are you sure to delete this records',
                             subTitle: "You can't undo this operation",
+                            confirmDialog: () => { handleOnDelete(item.id) }
                           })
                         }}
                       >
