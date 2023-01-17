@@ -27,7 +27,7 @@ export const updateEmployee = (data) => {
 
 export const ondeleteEmployee = (id) => {
     var employees = getAllEmployee()
-    var recordIndex = employees.filter((x) => x.id != id)
+    employees = employees.filter((x) => x.id != id)
     localStorage.setItem(keys.employees, JSON.stringify(employees))
 }
 

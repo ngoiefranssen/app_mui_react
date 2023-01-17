@@ -16,7 +16,7 @@ const Notification = () => {
         <Snackbar
             sx={{ ":root": { top: 'theme.spacing(9)' } }}
             open={notify.isOpen}
-            autoHideDuration={4000}
+            autoHideDuration={2500}
             anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
             onClose={handleClose}
         >
