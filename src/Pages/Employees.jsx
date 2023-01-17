@@ -83,6 +83,10 @@ const Employees = () => {
     setRecordsForEdit(item)
     setOpenPopup(true)
   }
+  const handleOnDelete = (id) => {
+    EmployeeServices.ondeleteEmployee(id)
+  }
+
   return (
     <>
       <PageHeader
