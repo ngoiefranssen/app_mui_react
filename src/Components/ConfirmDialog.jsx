@@ -11,39 +11,18 @@ import Controller from './Controls/Controller'
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import React from 'react'
 
-const useStyles = styled(theme => ({
-    dialog: {
-        padding: theme.spacing(2),
-        position: 'absolute',
-        top: theme.spacing(5)
-    },
-    dialogTitle: {
-        textAlign: 'center'
-    },
-    dialogContent: {
-        textAlign: 'center'
-    },
-    dialogAction: {
-        justifyContent: 'center'
-    },
-    titleIcon: {
-        backgroundColor: theme.palette.secondary.light,
-        color: theme.palette.secondary.main,
-        '&:hover': {
-            backgroundColor: theme.palette.secondary.light,
-            cursor: 'default'
-        },
-        '& .MuiSvgIcon-root': {
-            fontSize: '8rem',
-        }
-    }
-}))
-
 const ConfirmDialog = (props) => {
     const { confirmDialog, setConfirmDialog } = props
     return (
-        <Dialog open={confirmDialog.isOpen}>
-            <DialogTitle sx={{  }}>
+        <Dialog 
+            open={confirmDialog.isOpen}
+            sx={{ 
+                padding: 'spacing=2',
+                position: 'absolute',
+                top: 'spacing=5'
+             }}
+        >
+            <DialogTitle sx={{ textAlign: 'center' }}>
                 <IconButton
                     disableRipple
                     sx={{ 
@@ -62,7 +41,7 @@ const ConfirmDialog = (props) => {
                     <NotificationsIcon />
                 </IconButton>
             </DialogTitle>
-            <DialogContent sx={{ }}>
+            <DialogContent sx={{ textAlign: 'center' }}>
                 <Typography variant="h6">
                     {confirmDialog.title}
                 </Typography>
@@ -70,7 +49,7 @@ const ConfirmDialog = (props) => {
                     {confirmDialog.subTitle}
                 </Typography>
             </DialogContent>
-            <DialogActions>
+            <DialogActions sx={{ justifyContent : 'center' }}>
                 <Controller.Button
                     text="No"
                     color="default"
