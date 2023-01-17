@@ -4,7 +4,6 @@ import {
     DialogContent,
     DialogTitle,
     IconButton,
-    styled,
     Typography
 } from '@mui/material'
 import Controller from './Controls/Controller'
@@ -22,19 +21,19 @@ const ConfirmDialog = (props) => {
                 top: 'spacing=5'
              }}
         >
-            <DialogTitle sx={{ textAlign: 'center' }}>
+            <DialogTitle sx={{ textAlign : 'center' }}>
                 <IconButton
                     disableRipple
                     sx={{ 
                         paper: {
-                            backgroundColor: 'palette.secondary.light',
-                            color: 'palette.secondary.main',
-                            '&:hover': {
-                                backgroundColor: 'palette.secondary.light',
-                                cursor: 'default'
+                            backgroundColor : 'palette.secondary.light',
+                            color : 'palette.secondary.main',
+                            '&:hover' : {
+                                backgroundColor : 'palette.secondary.light',
+                                cursor : 'default'
                             },
-                            '& .MuiSvgIcon-root': {
-                                fontSize: '8rem',
+                            '& .MuiSvgIcon-root' : {
+                                fontSize : '8rem',
                         }}
                     }}
                 >
