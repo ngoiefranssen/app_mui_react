@@ -1,8 +1,13 @@
+import { Alert, Snackbar } from '@mui/material'
 import React from 'react'
 
 const Notification = () => {
   return (
-    <div>Notification</div>
+    <Snackbar>
+        <Alert>
+            
+        </Alert>
+    </Snackbar>
   )
 }
 
