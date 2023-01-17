@@ -47,7 +47,6 @@ const EmployeeForm = (props) => {
     if(fieldValues == values)
       return Object.values(temp).every((x)=> x == "");
   }
-
   const {
     values,
     setValues,
@@ -137,7 +136,7 @@ const EmployeeForm = (props) => {
             onChange={handleInputChange}
           />
           <div>
-            <Controller.Button type='submit' color='primary' text='Resgister' sx={{ ml:'20px' }} />
+            <Controller.Button type='submit' text='Resgister' sx={{ ml:'20px' }} />
             <Controller.Button text='Reset' onClick={resetForm}/>
           </div>
         </Grid>

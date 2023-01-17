@@ -2,13 +2,21 @@ import React from 'react'
 import EmployeeForm from './EmployeeForm'
 import PageHeader from '../Components/PageHeader';
 import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
-import { InputAdornment, Paper, TableBody, TableCell, TableRow } from '@mui/material';
+import { 
+  InputAdornment, 
+  Paper, 
+  TableBody,
+  TableCell,
+  TableRow,
+  Toolbar,
+} from '@mui/material';
 import UseTable from '../Components/UseTable';
 import * as EmployeeServices from '../Services/EmployeeServices' 
 import Controller from '../Components/Controls/Controller';
 import { Add, Search } from '@mui/icons-material';
 import DialoguePup from '../Components/Controls/DialoguePup';
-import { EditIcon, CloseIcon } from '@mui/icons-material';
+import EditIcon from '@mui/icons-material/Edit';
+import CloseIcon from '@mui/icons-material/Close';
 
 // const useStyles = createTheme((theme) => ({ useTheme
 //     root: {
