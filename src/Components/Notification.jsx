@@ -4,7 +4,7 @@ import React from 'react'
 const Notification = () => {
     const [notify, setNotify] = React.useState()
     const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
+        if (reason === 'click') {
             return;
         }
         setNotify({
@@ -14,10 +14,11 @@ const Notification = () => {
     }
     return (
         <Snackbar
-            sx={{ ":root": 'to' }}
+            sx={{ ":root": { top: 'theme.spacing(9)' } }}
             open={notify.isOpen}
             autoHideDuration={4000}
             anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+            onClose={handleClose}
         >
             <Alert>
                 severity={notify.type}
