@@ -42,7 +42,16 @@ const ConfirmDialog = (props) => {
                     {confirmDialog.subTitle}
                 </Typography>
             </DialogContent>
-            <DialogActions></DialogActions>
+            <DialogActions>
+                <Controls.Button
+                    text="No"
+                    color="default"
+                    onClick={() => setConfirmDialog({ ...confirmDialog, isOpen: false })} />
+                <Controls.Button
+                    text="Yes"
+                    color="secondary"
+                    onClick={confirmDialog.onConfirm} />
+            </DialogActions>
         </Dialog>
     )
 }
