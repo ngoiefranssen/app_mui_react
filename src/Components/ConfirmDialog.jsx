@@ -1,4 +1,4 @@
-import { styled } from '@mui/material'
+import { Dialog, DialogActions, DialogContent, DialogTitle, styled, Typography } from '@mui/material'
 import React from 'react'
 
 const useStyles = styled(theme => ({
@@ -29,10 +29,22 @@ const useStyles = styled(theme => ({
     }
 }))
 
-const ConfirmDialog = () => {
-  return (
-    <div>ConfirmDialog</div>
-  )
+const ConfirmDialog = (props) => {
+    const { title, subtitle, confirmDialog, setConfirmDialog } = props
+    return (
+        <Dialog open={confirmDialog.isOpen}>
+            <DialogTitle></DialogTitle>
+            <DialogContent>
+                <Typography variant="h6">
+                    {confirmDialog.title}
+                </Typography>
+                <Typography variant="subtitle2">
+                    {confirmDialog.subTitle}
+                </Typography>
+            </DialogContent>
+            <DialogActions></DialogActions>
+        </Dialog>
+    )
 }
 
 export default ConfirmDialog
