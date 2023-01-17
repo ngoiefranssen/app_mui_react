@@ -178,7 +178,10 @@ const Employees = () => {
         notify={notify}
         setNotify={setNotify}
       /> 
-      <ConfirmDialog />
+      <ConfirmDialog
+        confirmDialog = {confirmDialog}
+        setConfirmDialog = {setConfirmDialog}
+      />
     </>
   )
 }
